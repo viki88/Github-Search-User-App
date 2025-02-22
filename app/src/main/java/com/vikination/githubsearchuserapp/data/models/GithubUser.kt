@@ -1,0 +1,25 @@
+package com.vikination.githubsearchuserapp.data.models
+
+import com.squareup.moshi.Json
+
+data class GithubUser(
+    @Json(name = "login") val login : String?,
+    @Json(name = "avatar_url") val avatarUrl : String?,
+    @Json(name = "name") val name : String?,
+    @Json(name = "company") val company : String?,
+    @Json(name = "blog") val blog : String?,
+    @Json(name = "location") val location : String?,
+    @Json(name = "bio") val bio : String?,
+){
+    fun toUser(): User {
+        return User(
+            username = login ?: "",
+            avatarUrl = avatarUrl ?: "",
+            name = name ?: "",
+            company = company ?: "",
+            blog = blog ?: "",
+            location = location ?: "",
+            bio = bio ?: ""
+        )
+    }
+}
