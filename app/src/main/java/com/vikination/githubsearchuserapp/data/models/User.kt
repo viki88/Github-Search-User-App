@@ -21,5 +21,17 @@ data class User(
                 blog = "N/A"
             )
         }
+
+        fun getDummyUser(): User{
+            return User(
+                username = "vikination",
+                avatarUrl = "https://cnmi.spmi.pt/wp-content/uploads/2014/10/speaker-3.jpg",
+                bio = "this bio is very long, and long and long and long and loooooooooooong, so long ",
+                company = "Vikination corp",
+                location = "Bandung, Jawa Barat",
+                name = "Viki Andrianto",
+                blog = "vikiandrianto.my.id"
+            )
+        }
     }
 }
