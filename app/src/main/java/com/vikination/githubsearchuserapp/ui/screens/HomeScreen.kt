@@ -10,6 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
+import com.vikination.githubsearchuserapp.data.models.ResultState
+import com.vikination.githubsearchuserapp.ui.components.SearchAppBar
 import com.vikination.githubsearchuserapp.ui.components.UserList
 import com.vikination.githubsearchuserapp.ui.viewmodels.MainViewModel
 
@@ -18,13 +20,23 @@ fun HomeScreen(
     navController: NavController,
     viewModel: MainViewModel = hiltViewModel<MainViewModel>()
 ){
-    val users by viewModel.users.collectAsState()
+    val usersState by viewModel.usersState.collectAsState()
+    val searchQuery by viewModel.searchQuery.collectAsState()
 
     LaunchedEffect(Unit) {
-        viewModel.loadAllUsers()
+//        viewModel.loadAllUsers()
     }
 
-    Scaffold {
+    Scaffold(
+        topBar = {
+            SearchAppBar(
+                searchQuery,
+                onSearchQueryChanged = {viewModel.updateQuery(it)},
+                onSearchClicked = {viewModel.fetchUserSearch()},
+                onClose = {viewModel.updateQuery("")}
+            )
+        }
+    ) {
         padding ->
         UserList(
             modifier = Modifier.padding(padding),
@@ -32,7 +44,7 @@ fun HomeScreen(
                 username ->
                     navController.navigate(Screen.Detail.createRoute(username))
             },
-            users = users
+            usersState = usersState
         )
     }
 }

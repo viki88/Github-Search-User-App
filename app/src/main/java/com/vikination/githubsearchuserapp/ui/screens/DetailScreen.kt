@@ -22,7 +22,7 @@ fun DetailScreen(
     username :String,
     navController: NavController,
     viewModel: MainViewModel = hiltViewModel()){
-    val user by viewModel.user.collectAsState()
+    val userState by viewModel.userState.collectAsState()
 
     LaunchedEffect(Unit) {
         viewModel.getUserDetail(username)
@@ -32,7 +32,7 @@ fun DetailScreen(
         innerPadding ->
         DetailScreenContent(
             Modifier.padding(paddingValues = innerPadding).fillMaxHeight(),
-            user
+            userState
         )
     }
 }

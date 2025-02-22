@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GithubSearchUserApp</string>
+    <string name="message_error_reach_limit">You have reach limit to request Github API, please try again in one hour</string>
 </resources>
