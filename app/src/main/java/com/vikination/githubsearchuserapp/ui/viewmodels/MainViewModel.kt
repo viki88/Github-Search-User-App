@@ -2,7 +2,6 @@ package com.vikination.githubsearchuserapp.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vikination.githubsearchuserapp.data.models.GithubUser
 import com.vikination.githubsearchuserapp.data.models.User
 import com.vikination.githubsearchuserapp.domain.repository.GithubRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,15 +15,23 @@ class MainViewModel @Inject constructor(private val repository: GithubRepository
     private val _users = MutableStateFlow<List<User>>(emptyList())
     val users: StateFlow<List<User>> = _users
 
-    init {
-        getUsers()
-    }
+    private val _user = MutableStateFlow(User.getEmptyUser())
+    val user: StateFlow<User> = _user
 
-    private fun getUsers() {
+    fun loadAllUsers() {
         viewModelScope.launch {
             repository.getUsers().collect {
                 _users.value = it
             }
         }
     }
+
+    fun getUserDetail(username: String){
+        viewModelScope.launch {
+            repository.getUserDetail(username).collect{
+                _user.value = it
+            }
+        }
+    }
+
 }

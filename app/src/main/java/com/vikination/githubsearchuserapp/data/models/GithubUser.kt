@@ -13,13 +13,13 @@ data class GithubUser(
 ){
     fun toUser(): User {
         return User(
-            username = login ?: "",
-            avatarUrl = avatarUrl ?: "",
-            name = name ?: "",
-            company = company ?: "",
-            blog = blog ?: "",
-            location = location ?: "",
-            bio = bio ?: ""
+            username = login ?: "N/A",
+            avatarUrl = avatarUrl ?: "N/A",
+            name = name ?: "N/A",
+            company = company ?: "N/A",
+            blog = blog ?: "N/A",
+            location = location ?: "N/A",
+            bio = bio ?: "N/A"
         )
     }
 }

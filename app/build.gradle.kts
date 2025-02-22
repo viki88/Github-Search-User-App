@@ -60,6 +60,8 @@ dependencies {
     implementation(libs.moshi.kotlin)
     implementation(libs.android.interceptor)
     implementation(libs.glide)
+    implementation(libs.hilt.navigation.compose)
+    implementation(libs.shimmer)
     ksp(libs.dagger.hilt.compiler)
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
