@@ -58,14 +58,15 @@ kover {
 //                        "com.vikination.githubsearchuserapp.presentation.ui.components.*",
 //                        "com.vikination.githubsearchuserapp.presentation.ui.theme.*",
                     "com.vikination.githubsearchuserapp.ui.viewmodels"
-                ) // Adjust with your package
+                )
             }
         }
     }
 }
 
 dependencies {
-
+    debugImplementation(libs.chucker)
+    releaseImplementation(libs.chucker.prod)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -91,6 +92,9 @@ dependencies {
     implementation(libs.room.ktx)
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
+    testImplementation(libs.turbine)
+    testImplementation(libs.kotlin.test.junit)
+    testImplementation(libs.kotlin.coroutine.test)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))

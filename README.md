@@ -28,6 +28,20 @@ This Android application allows users to search for GitHub profiles by username 
 3. **Build the Project**: Allow Android Studio to build the project and download any necessary dependencies.
 4. **Run the App**: Connect an Android device or start an emulator, then click 'Run' to install and launch the app.
 
+## Test Coverage
+
+This app using kover library to coverage test, you can run test coverage with command below
+
+```bash
+./gradlew koverHtmlReport
+```
+
+then test coverage report will generate in this location
+
+```bash
+app/build/reports/kover/html/index.html
+```
+
 ## Usage
 
 1. **Search for a User**: Enter the GitHub username into the search bar.

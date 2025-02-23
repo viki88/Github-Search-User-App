@@ -1,11 +1,14 @@
 package com.vikination.githubsearchuserapp.di
 
+import android.content.Context
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.vikination.githubsearchuserapp.data.source.remote.GithubApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -24,14 +27,11 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(moshi: Moshi): Retrofit{
+    fun provideRetrofit(@ApplicationContext context: Context, moshi: Moshi): Retrofit{
         return Retrofit.Builder()
             .baseUrl("https://api.github.com/")
             .client(
-                OkHttpClient.Builder().addInterceptor(
-                    HttpLoggingInterceptor().apply {
-                        level = HttpLoggingInterceptor.Level.BODY }
-                ).build()
+                OkHttpClient.Builder().addInterceptor(ChuckerInterceptor(context)).build()
             )
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()

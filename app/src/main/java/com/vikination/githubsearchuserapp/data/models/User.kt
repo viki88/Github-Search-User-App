@@ -41,19 +41,6 @@ data class User(
             )
         }
 
-        fun getDummyUser(): User{
-            return User(
-                id = 0,
-                username = "vikination",
-                avatarUrl = "https://cnmi.spmi.pt/wp-content/uploads/2014/10/speaker-3.jpg",
-                bio = "this bio is very long, and long and long and long and loooooooooooong, so long ",
-                company = "Vikination corp",
-                location = "Bandung, Jawa Barat",
-                name = "Viki Andrianto",
-                blog = "vikiandrianto.my.id"
-            )
-        }
-
         private val moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
         val userAdapter :JsonAdapter<User> = moshi.adapter(User::class.java)
     }

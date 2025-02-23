@@ -24,6 +24,7 @@ import com.bumptech.glide.integration.compose.GlideImage
 import com.vikination.githubsearchuserapp.R
 import com.vikination.githubsearchuserapp.data.models.ResultState
 import com.vikination.githubsearchuserapp.data.models.User
+import com.vikination.githubsearchuserapp.data.utils.Dummy
 import com.vikination.githubsearchuserapp.ui.theme.quicksandFamily
 
 @OptIn(ExperimentalGlideComposeApi::class)
@@ -105,7 +106,7 @@ fun DetailScreenContent(
 fun DetailScreenContentPreview(){
     DetailScreenContent(
         Modifier.padding(8.dp),
-        ResultState.Success(User.getDummyUser())
+        ResultState.Success(Dummy.getDummyUser())
     )
 }
 
