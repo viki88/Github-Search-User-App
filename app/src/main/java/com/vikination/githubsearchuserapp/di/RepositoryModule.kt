@@ -1,7 +1,9 @@
 package com.vikination.githubsearchuserapp.di
 
 import com.vikination.githubsearchuserapp.data.repository.GithubRepositoryImpl
+import com.vikination.githubsearchuserapp.data.source.local.dao.UserDao
 import com.vikination.githubsearchuserapp.data.source.remote.GithubApiService
+import com.vikination.githubsearchuserapp.data.source.remote.utils.NetworkUtils
 import com.vikination.githubsearchuserapp.domain.repository.GithubRepository
 import dagger.Module
 import dagger.Provides
@@ -15,7 +17,11 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideGithubRepository(githubApiService: GithubApiService): GithubRepository =
-        GithubRepositoryImpl(githubApiService)
+    fun provideGithubRepository(
+        githubApiService: GithubApiService,
+        userDao: UserDao, networkUtils:
+        NetworkUtils
+    ): GithubRepository =
+            GithubRepositoryImpl(githubApiService, userDao, networkUtils)
 
 }
