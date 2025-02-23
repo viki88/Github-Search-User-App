@@ -1,9 +1,12 @@
+import org.gradle.internal.impldep.org.junit.experimental.categories.Categories.CategoryFilter.include
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kover)
 }
 
 android {
@@ -41,6 +44,26 @@ android {
     }
 }
 
+kover {
+    useJacoco()
+    reports{
+        filters {
+            includes {
+                packages(
+                    "com.vikination.githubsearchuserapp.data.repository",
+//                        "com.vikination.githubsearchuserapp.data.source.local.dao.*",
+//                        "com.vikination.githubsearchuserapp.data.source.remote.*",
+//                        "com.vikination.githubsearchuserapp.domain.repository.*",
+//                        "com.vikination.githubsearchuserapp.presentation.ui.screens.*",
+//                        "com.vikination.githubsearchuserapp.presentation.ui.components.*",
+//                        "com.vikination.githubsearchuserapp.presentation.ui.theme.*",
+                    "com.vikination.githubsearchuserapp.ui.viewmodels"
+                ) // Adjust with your package
+            }
+        }
+    }
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -62,10 +85,12 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.shimmer)
+    implementation(libs.splashscreen)
     ksp(libs.dagger.hilt.compiler)
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
     testImplementation(libs.junit)
+    testImplementation(libs.mockk)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))

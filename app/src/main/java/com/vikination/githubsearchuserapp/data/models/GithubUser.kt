@@ -24,17 +24,4 @@ data class GithubUser(
             bio = bio ?: "N/A"
         )
     }
-
-    fun toUserEntity(): UserEntity {
-        return UserEntity(
-            id = id ?: 0,
-            username = login ?: "N/A",
-            avatarUrl = avatarUrl ?: "N/A",
-            name = name ?: "N/A",
-            company = company ?: "N/A",
-            blog = blog ?: "N/A",
-            location = location ?: "N/A",
-            bio = bio ?: "N/A"
-        )
-    }
 }
