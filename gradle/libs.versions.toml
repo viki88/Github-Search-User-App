@@ -16,7 +16,6 @@ retrofit = "2.11.0"
 ksp = "2.0.21-1.0.27"
 room = "2.6.1"
 moshi-kotlin = "1.15.2"
-logging = "4.9.1"
 glide = "1.0.0-beta01"
 hilt-navigation-compose = "1.2.0"
 shimmer = "1.3.2"
@@ -52,7 +51,6 @@ retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-moshi
 moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi-kotlin"}
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room"}
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room"}
-android-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "logging"}
 glide = { group = "com.github.bumptech.glide", name = "compose", version.ref = "glide"}
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation-compose"}
 shimmer = { group = "com.valentinilk.shimmer", name = "compose-shimmer", version.ref = "shimmer"}

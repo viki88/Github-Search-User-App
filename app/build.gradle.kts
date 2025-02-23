@@ -82,7 +82,6 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter)
     implementation(libs.moshi.kotlin)
-    implementation(libs.android.interceptor)
     implementation(libs.glide)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.shimmer)
