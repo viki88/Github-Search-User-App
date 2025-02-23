@@ -34,7 +34,6 @@ class GithubRepositoryImpl @Inject constructor (
         emit(ResultState.Loading)
 
         val cachedUser = userDao.getUserDetail(username).firstOrNull()
-        Log.i("TAG", "getUserDetail cached: $cachedUser")
         if (cachedUser != null){
             emit(ResultState.Success(cachedUser.toUser()))
         }
