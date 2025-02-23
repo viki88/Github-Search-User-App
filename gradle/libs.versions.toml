@@ -20,6 +20,9 @@ logging = "4.9.1"
 glide = "1.0.0-beta01"
 hilt-navigation-compose = "1.2.0"
 shimmer = "1.3.2"
+splashscreen = "1.0.1"
+kover = "0.9.1"
+mockk = "1.13.16"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -50,6 +53,8 @@ android-interceptor = { group = "com.squareup.okhttp3", name = "logging-intercep
 glide = { group = "com.github.bumptech.glide", name = "compose", version.ref = "glide"}
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-navigation-compose"}
 shimmer = { group = "com.valentinilk.shimmer", name = "compose-shimmer", version.ref = "shimmer"}
+splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashscreen"}
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -57,4 +62,5 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt"}
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover"}
 
