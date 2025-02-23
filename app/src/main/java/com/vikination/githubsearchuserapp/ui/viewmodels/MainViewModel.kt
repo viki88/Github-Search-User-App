@@ -39,8 +39,8 @@ class MainViewModel @Inject constructor(private val repository: GithubRepository
 
     fun loadAllUsers() {
         viewModelScope.launch {
-            repository.getUsers().collect {
-                _usersState.value = it
+            repository.getCachedUsers().collect {
+                _usersState.value = ResultState.Success(it)
             }
         }
     }

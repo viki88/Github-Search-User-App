@@ -1,5 +1,6 @@
 package com.vikination.githubsearchuserapp.ui.components
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -21,10 +22,10 @@ fun UserList(
     usersState: ResultState<List<User>>){
 
     if (usersState is ResultState.Error){
-        if (usersState.code == 403){
-            Box(modifier = Modifier.fillMaxSize().padding(16.dp), contentAlignment = Alignment.Center) {
-                Text(stringResource(R.string.message_error_reach_limit))
-            }
+        Box(modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp), contentAlignment = Alignment.Center) {
+            Text(usersState.message)
         }
     }else{
         LazyColumn(modifier = modifier) {

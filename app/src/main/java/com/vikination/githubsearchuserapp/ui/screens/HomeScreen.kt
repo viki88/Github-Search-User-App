@@ -24,7 +24,7 @@ fun HomeScreen(
     val searchQuery by viewModel.searchQuery.collectAsState()
 
     LaunchedEffect(Unit) {
-//        viewModel.loadAllUsers()
+        viewModel.loadAllUsers()
     }
 
     Scaffold(
@@ -33,7 +33,10 @@ fun HomeScreen(
                 searchQuery,
                 onSearchQueryChanged = {viewModel.updateQuery(it)},
                 onSearchClicked = {viewModel.fetchUserSearch()},
-                onClose = {viewModel.updateQuery("")}
+                onClose = {
+                    viewModel.updateQuery("")
+                    viewModel.loadAllUsers()
+                }
             )
         }
     ) {
@@ -41,8 +44,8 @@ fun HomeScreen(
         UserList(
             modifier = Modifier.padding(padding),
             onClick = {
-                username ->
-                    navController.navigate(Screen.Detail.createRoute(username))
+                userJson ->
+                    navController.navigate(Screen.Detail.createRoute(userJson))
             },
             usersState = usersState
         )

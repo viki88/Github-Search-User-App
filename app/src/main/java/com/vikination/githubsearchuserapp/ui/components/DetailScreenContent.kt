@@ -36,7 +36,7 @@ fun DetailScreenContent(
     if (userState is ResultState.Error){
         if (userState.code == 403){
             Box(modifier = Modifier.fillMaxSize().padding(16.dp), contentAlignment = Alignment.Center) {
-                Text("You have reach limit to request Github API")
+                Text(stringResource(R.string.message_error_reach_limit))
             }
         }
     }else{
@@ -48,7 +48,7 @@ fun DetailScreenContent(
             val user = (userState as ResultState.Success).data
             Column {
                 GlideImage(
-                    modifier = Modifier.height(300.dp).fillMaxSize(),
+                    modifier = Modifier.height(400.dp).fillMaxSize(),
                     model = user.avatarUrl,
                     contentDescription = user.username,
                     contentScale = ContentScale.Crop

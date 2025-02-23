@@ -9,12 +9,6 @@ import retrofit2.http.Query
 
 interface GithubApiService {
 
-    @GET("users")
-    suspend fun getUsers(
-        @Query("per_page") perPage: Int = 25,
-        @Query("page") page: Int = 1
-    ): Response<List<GithubUser>>
-
     @GET("users/{username}")
     suspend fun getUserDetail(
         @Path("username") username: String
